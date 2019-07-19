@@ -16,7 +16,7 @@ class YesNoQuestion(Question):
         self._pretty = defalt_pretty if pretty is None else pretty
         self._converter = default_converter if converter is None else converter
         self._question_text = ("class:question.text", question)
-        self._question_key = ("class::question.key", f" [{keys}]")
+        self._question_key = ("class::question.key", " [{}]".format(keys))
         super().__init__([self._question_text, self._question_key])
 
     def key_bindings(self):

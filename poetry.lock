@@ -3,21 +3,16 @@ category = "main"
 description = "Library for building powerful interactive command lines in Python"
 name = "prompt-toolkit"
 optional = false
-python-versions = "*"
-version = "2.0.9"
+python-versions = ">=3.6"
+version = "3.0.0"
 
 [package.dependencies]
-six = ">=1.9.0"
 wcwidth = "*"
 
-[[package]]
-category = "main"
-description = "Python 2 and 3 compatibility utilities"
-name = "six"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*"
-version = "1.12.0"
-
+[package.source]
+reference = "1e22be9e0879ce19613ac931a3ce842778b536c3"
+type = "git"
+url = "https://github.com/prompt-toolkit/python-prompt-toolkit.git"
 [[package]]
 category = "main"
 description = "Measures number of Terminal column cells of wide-character codes"
@@ -27,10 +22,9 @@ python-versions = "*"
 version = "0.1.7"
 
 [metadata]
-content-hash = "0143f73b4b29a8f36d45ca421d12b6707287fd88565741aead3b2b9a1d2d2eec"
-python-versions = "^3.7"
+content-hash = "a638781ca2f8f11cb3de4aa8791808f7438d927ade66af603a11054a063201b8"
+python-versions = "^3.6"
 
 [metadata.hashes]
-prompt-toolkit = ["11adf3389a996a6d45cc277580d0d53e8a5afd281d0c9ec71b28e6f121463780", "2519ad1d8038fd5fc8e770362237ad0364d16a7650fb5724af6997ed5515e3c1", "977c6583ae813a37dc1c2e1b715892461fcbdaa57f6fc62f33a528c4886c8f55"]
-six = ["3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c", "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"]
+prompt-toolkit = []
 wcwidth = ["3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e", "f4ebe71925af7b40a864553f761ed559b43544f8f71746c2d756c7fe788ade7c"]
