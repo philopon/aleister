@@ -22,10 +22,14 @@ class Wizard:
         self._style = _get_default_style() if style is None else style
 
     def run(self):
+        failed = False
         answer = None
         while True:
             try:
-                widget = self._questions_iter.send(answer)
+                if failed:
+                    widget = self._questions_iter.throw(answer)
+                else:
+                    widget = self._questions_iter.send(answer)
             except StopIteration:
                 break
 
@@ -43,8 +47,12 @@ class Wizard:
 
             try:
                 answer = app.run()
+                failed = False
             except Cancel:
                 break
+            except Exception as e:
+                answer = e
+                failed = True
 
     def _make_handler(self, app):
         def handler(answer):
