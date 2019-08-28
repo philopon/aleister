@@ -7,6 +7,10 @@ from prompt_toolkit.filters.app import has_focus
 from prompt_toolkit.document import Document
 
 
+def pretty_answer(v):
+    return v.replace("\t". " ")
+
+
 class ChoiceCandidatesControl(FormattedTextControl):
     def __init__(self, candidates, default=0):
         self._candidates = candidates
@@ -18,10 +22,10 @@ class ChoiceCandidatesControl(FormattedTextControl):
         for i, c in enumerate(self._candidates):
             if i == self.selected_item:
                 tokens.extend(
-                    [("class:choice.cursor", "❯ "), ("class:choice.selected", c.replace("\t", " "))]
+                    [("class:choice.cursor", "❯ "), ("class:choice.selected", pretty_answer(c))]
                 )
             else:
-                tokens.extend([("", "  "), ("class:choice.unselected", c.replace("\t", " "))])
+                tokens.extend([("", "  "), ("class:choice.unselected", pretty_answer(c))])
             tokens.append(("", "\n"))
 
         tokens.pop()
@@ -108,12 +112,12 @@ class ChoiceQuestion(Question):
             if self.other_selected:
                 return event.app.layout.focus(self._other_value_control)
 
-            self.set_answer(self._candidates[self._selected])
+            self.set_answer(self._candidates[self._selected], pretty_answer)
 
         return kb
 
     def _buffer_handler(self, doc):
-        self.set_answer(doc.text)
+        self.set_answer(doc.text, pretty_answer)
 
     def _get_default_selected(self, default):
         if default is None:
