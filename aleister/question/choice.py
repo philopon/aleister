@@ -18,10 +18,10 @@ class ChoiceCandidatesControl(FormattedTextControl):
         for i, c in enumerate(self._candidates):
             if i == self.selected_item:
                 tokens.extend(
-                    [("class:choice.cursor", "❯ "), ("class:choice.selected", c)]
+                    [("class:choice.cursor", "❯ "), ("class:choice.selected", c.replace("\t", " "))]
                 )
             else:
-                tokens.extend([("", "  "), ("class:choice.unselected", c)])
+                tokens.extend([("", "  "), ("class:choice.unselected", c.replace("\t", " "))])
             tokens.append(("", "\n"))
 
         tokens.pop()
