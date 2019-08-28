@@ -8,7 +8,7 @@ from prompt_toolkit.document import Document
 
 
 def pretty_answer(v):
-    return v.replace("\t". " ")
+    return v.replace("\t", " ")
 
 
 class ChoiceCandidatesControl(FormattedTextControl):
